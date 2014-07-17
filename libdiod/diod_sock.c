@@ -106,6 +106,7 @@ _enable_keepalive(int fd)
         err ("setsockopt SO_KEEPIDLE");
         goto done;
     }
+#ifdef 0
     i = 120;
     ret = setsockopt (fd, SOL_TCP, TCP_KEEPINTVL, &i, len);
     if (ret < 0) {
@@ -118,6 +119,7 @@ _enable_keepalive(int fd)
         err ("setsockopt SO_KEEPCNT");
         goto done;
     }
+#endif
 done:
     return ret;
 }
